@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CreateNotes({ createNote }) {
+function CreateNote({ createNote }) {
   const [note, setNote] = useState("");
 
   const handleSubmit = (e) => {
@@ -34,4 +34,4 @@ function CreateNotes({ createNote }) {
   );
 }
 
-export default CreateNotes;
+export default CreateNote;
