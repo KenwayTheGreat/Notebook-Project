@@ -1,5 +1,5 @@
 import React from "react";
-import Note from "./CreateNote";
+import Note from "./Note";
 
 function AllNotes({ notes }) {
   console.log(notes);

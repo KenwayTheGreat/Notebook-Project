@@ -6,7 +6,7 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   const createNote = (newNote) => {
-    setNotes([newNote]);
+    setNotes(...notes, [newNote]);
   };
 
   return (
