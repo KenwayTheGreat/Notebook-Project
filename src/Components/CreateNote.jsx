@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { add_new_note } from "../redux/actions/notes.action";
 
-function CreateNote({ createNote }) {
+function CreateNote({ add_new_note }) {
   const [note, setNote] = useState("");
 
   const handleSubmit = (e) => {
@@ -11,7 +13,8 @@ function CreateNote({ createNote }) {
       date: new Date().toJSON().slice(0, 10),
       isImportant: false,
     };
-    createNote(data);
+
+    add_new_note(data);
   };
 
   return (
@@ -34,4 +37,4 @@ function CreateNote({ createNote }) {
   );
 }
 
-export default CreateNote;
+export default connect(null, { add_new_note })(CreateNote);

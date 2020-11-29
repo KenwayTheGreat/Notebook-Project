@@ -1,9 +1,11 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import notes_reducer from "./reducers/notes.reducer";
+import thunk from "redux-thunk";
 
-const initialState = {
-  notes: ["note1", "note2", "note3"],
-};
+const middleware = [thunk];
 
-const reducer = (initialState) => initialState;
-
-export const store = createStore(reducer, initialState);
+export const store = createStore(
+  notes_reducer,
+  composeWithDevTools(applyMiddleware(...middleware))
+);

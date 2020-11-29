@@ -1,17 +1,20 @@
 import React from "react";
 import Note from "./Note";
+import { connect } from "react-redux";
 
-function AllNotes({ notes, toggleNote }) {
+function AllNotes({ notes }) {
   return (
     <div className="my-3">
       <h5>All Notes</h5>
       <div className="row">
         {notes.map((note) => (
-          <Note key={note.id} note={note} toggleNote={toggleNote} />
+          <Note key={note.id} note={note} />
         ))}
       </div>
     </div>
   );
 }
-
-export default AllNotes;
+const mapStateToProps = (state) => ({
+  notes: state.notes,
+});
+export default connect(mapStateToProps)(AllNotes);
