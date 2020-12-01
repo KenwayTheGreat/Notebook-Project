@@ -1,29 +1,17 @@
 const initState = {
-  notes: [
-    {
-      id: 1,
-      date: "23/12/2020",
-      isImportant: false,
-      note: "I am a note 1",
-    },
-    {
-      id: 2,
-      date: "24/12/2020",
-      isImportant: false,
-      note: "I am a note 2",
-    },
-    {
-      id: 3,
-      date: "25/12/2020",
-      isImportant: false,
-      note: "I am a note 3",
-    },
-  ],
+  notes: [],
+  isLoading: false,
 };
 
 const reducer = (prevState = initState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case "SET_LOADER":
+      return {
+        ...prevState,
+        isLoading: true,
+      };
+
     case "ADD_NOTE":
       return {
         ...prevState,
@@ -43,6 +31,12 @@ const reducer = (prevState = initState, action) => {
       return {
         ...prevState,
         notes: new_notes,
+      };
+
+    case "LOAD_NOTES":
+      return {
+        ...prevState,
+        notes: payload,
       };
 
     default:
