@@ -17,7 +17,7 @@ function ImportantNotes({ notes }) {
   );
 }
 const mapStateToProps = (state) => ({
-  notes: state.notes,
+  notes: state.notes_reducer.notes,
 });
 
 export default connect(mapStateToProps)(ImportantNotes);
